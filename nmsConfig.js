@@ -17,7 +17,7 @@ export const nmsConfig = {
             allow_origin: '*'
         },
         trans: {
-            ffmpeg: 'ffmpeg',
+            ffmpeg: '/app/vendor/ffmpeg/ffmpeg',
             tasks: [
                 {
                     app: 'live',
