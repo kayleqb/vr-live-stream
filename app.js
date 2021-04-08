@@ -15,11 +15,7 @@ const port = 4900;
 const fs = FileStore(session)
 
 if (app.get('env') === 'production') {
-    app.use(morgan('common', {
-        skip: function (req, res) {
-            return res.statusCode < 400
-        }, stream: __dirname + '/../morgan.log'
-    }));
+    app.use(morgan('common'));
 } else { //set NODE_ENV=dev
     app.use(morgan('dev'));
 }
