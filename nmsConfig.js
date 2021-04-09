@@ -1,23 +1,23 @@
 export const nmsConfig = {
     server: {
-        secret: "aidsubd298db9aod",
-        port : 4500
+        secret: process.env.SESSION_SECRET,
+        port : process.env.NMS_PORT || 4100
     },
     rtmp_server: {
         rtmp: {
-            port: 4000,
+            port: process.env.RTMP_PORT || 4200,
             chunk_size: 60000,
             gop_cache: true,
             ping: 60,
             ping_timeout: 30
         },
         http: {
-            port: 4800,
+            port: process.env.HTTP_PORT || 4300,
             mediaroot: './server/media',
             allow_origin: '*'
         },
         trans: {
-            ffmpeg: '/app/vendor/ffmpeg/ffmpeg',
+            ffmpeg: process.env.FFMPEG_PATH || 'C:/Users/mccle/3D Objects/ffmpeg.exe',
             tasks: [
                 {
                     app: 'live',

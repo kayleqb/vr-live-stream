@@ -11,7 +11,7 @@ import FileStore from "session-file-store";
 import nms from './nms.js'
 
 const app = express();
-const port = 4900;
+const port = process.env.APP_PORT || 4000;
 const fs = FileStore(session)
 
 if (app.get('env') === 'production') {
@@ -33,7 +33,7 @@ app.use(session({
     store: new fs({
         path: 'server/sessions'
     }),
-    secret: "aidsubd298db9aod",
+    secret: process.env.SESSION_SECRET,
     maxAge: Date().now + (60 * 1000 * 30),
     resave: true,
     saveUninitialized: false,
